@@ -2,9 +2,9 @@
 	"name": "employees-backend",
 	"version": "1.0.0",
 	"description": "Backend for Employees application.",
-	"main": "index.js",
+	"main": "src/startup.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"dev": "nodemon src/startup.js"
 	},
 	"repository": {
 		"type": "git",
@@ -21,5 +21,22 @@
 	"bugs": {
 		"url": "https://github.com/danutsss/employees-backend/issues"
 	},
-	"homepage": "https://github.com/danutsss/employees-backend#readme"
+	"homepage": "https://github.com/danutsss/employees-backend#readme",
+	"dependencies": {
+		"bcrypt": "^5.1.0",
+		"express": "^4.18.2",
+		"express-validator": "^7.0.1",
+		"mongoose": "^7.1.1"
+	},
+	"devDependencies": {
+		"body-parser": "^1.20.2",
+		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"helmet": "^7.0.0",
+		"jsonwebtoken": "^9.0.0",
+		"morgan": "^1.10.0",
+		"passport": "^0.6.0",
+		"passport-jwt": "^4.0.1"
+	}
 }
