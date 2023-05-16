@@ -29,39 +29,53 @@ mongoose
 		const backendApp = express();
 
 		// Add `helmet` to enhance API's security.
-		console.log("[express]: enhancing API security with `helmet`...");
-		backendApp.use(helmet());
+		setTimeout(() => {
+			console.log("[express]: enhancing API security with `helmet`...");
+			backendApp.use(helmet());
+		}, 1000);
 
 		// Use `body-parser` to parse JSON bodies into JS objects.
-		console.log("[express]: parsing JSON bodies with `body-parser`...");
-		backendApp.use(bodyParser.json());
-		backendApp.use(bodyParser.urlencoded({ extended: true }));
+		setTimeout(() => {
+			console.log("[express]: parsing JSON bodies with `body-parser`...");
+			backendApp.use(bodyParser.json());
+			backendApp.use(bodyParser.urlencoded({ extended: true }));
+		}, 1500);
 
 		// Use `cookie-parser` to parse cookies.
-		console.log("[express]: parsing cookies with `cookie-parser`...");
-		backendApp.use(cookieParser());
+		setTimeout(() => {
+			console.log("[express]: parsing cookies with `cookie-parser`...");
+			backendApp.use(cookieParser());
+		}, 2000);
 
 		// Enable CORS for all requests.
-		console.log("[express]: enabling CORS for all requests...");
-		backendApp.use(
-			CORS({
-				credentials: true,
-				origin: true,
-			})
-		);
+		setTimeout(() => {
+			console.log("[express]: enabling CORS for all requests...");
+			backendApp.use(
+				CORS({
+					credentials: true,
+					origin: true,
+				})
+			);
+		}, 2500);
 
 		// Add `morgan` to log HTTP requests.
-		console.log("[express]: logging HTTP requests with `morgan`...");
-		backendApp.use(morgan("combined"));
+		setTimeout(() => {
+			console.log("[express]: logging HTTP requests with `morgan`...");
+			backendApp.use(morgan("combined"));
+		}, 3000);
 
 		// Initialize `passport` middleware.
-		console.log("[express]: initializing `passport` middleware...");
-		backendApp.use(passport.initialize());
-		require("./middleware/jwt")(passport);
+		setTimeout(() => {
+			console.log("[express]: initializing `passport` middleware...");
+			backendApp.use(passport.initialize());
+			require("./middleware/jwt")(passport);
+		}, 3500);
 
 		// Add routes.
-		console.log("[express]: adding routes...");
-		backendApp.use("./routes/index")(backendApp);
+		setTimeout(() => {
+			console.log("[express]: adding routes...");
+			// backendApp.use("./routes/index")(backendApp);
+		}, 4000);
 
 		// Set debug mode.
 		process.env.NODE_ENV === "development"
@@ -74,7 +88,7 @@ mongoose
 					`[express]: server listening on port ${process.env.PORT}...`
 				);
 			});
-		}, 2000);
+		}, 4500);
 	})
 	.catch((error) => {
 		console.log(
