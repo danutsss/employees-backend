@@ -38,7 +38,6 @@ exports.loginEmployee = async (request, response) => {
 			success: true,
 			message: "you have successfully logged in.",
 			token: employee.generateJWT(),
-			employee,
 		});
 	} catch (error) {
 		console.log(

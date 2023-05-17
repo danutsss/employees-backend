@@ -30,6 +30,7 @@ const employeeSchema = new mongoose.Schema({
 	permissionLevel: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Permission",
+		default: "regular_user",
 	},
 	comments: [
 		{

@@ -58,7 +58,7 @@ exports.getShiftById = async (request, response) => {
 	try {
 		const shiftId = request.params.id;
 
-		const shift = await Shift.findById(id);
+		const shift = await Shift.findById(shiftId);
 
 		if (!shift) {
 			console.log(
@@ -96,7 +96,7 @@ exports.updateShiftById = async (request, response) => {
 		const newShiftInfo = request.body;
 
 		await Shift.findByIdAndUpdate(
-			id,
+			shiftId,
 			{ $set: newShiftInfo },
 			{ new: true }
 		);

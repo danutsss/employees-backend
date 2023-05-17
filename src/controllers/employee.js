@@ -51,7 +51,6 @@ exports.createEmployee = async (request, response) => {
 exports.deleteEmployee = async (request, response) => {
 	try {
 		const id = request.params.id;
-		const employeeId = request.employee.id;
 
 		// Check if user is admin.
 		const hasPermission =
@@ -64,17 +63,6 @@ exports.deleteEmployee = async (request, response) => {
 			return response.status(401).json({
 				success: false,
 				message: "you do not have permission to delete employee.",
-			});
-		}
-
-		// Make sure the passed ID is the same as the logged in employee.
-		if (employeeId.toString() !== id.toString()) {
-			console.log(
-				`[api/v1/employee.js] - deleteEmployee() -> employeeId: ${employeeId} not equal to id: ${id}`
-			);
-			return response.status(401).json({
-				success: false,
-				message: "you are not authorized to delete this employee.",
 			});
 		}
 

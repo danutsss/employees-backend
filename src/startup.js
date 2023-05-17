@@ -74,7 +74,7 @@ mongoose
 		// Add routes.
 		setTimeout(() => {
 			console.log("[express]: adding routes...");
-			// backendApp.use("./routes/index")(backendApp);
+			require("./routes/index")(backendApp);
 		}, 4000);
 
 		// Set debug mode.
